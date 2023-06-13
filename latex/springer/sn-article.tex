@@ -1,0 +1,178 @@
+%Version 2.1 April 2023
+% See section 11 of the User Manual for version history
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%\documentclass[referee,sn-basic]{sn-jnl}% referee option is meant for double line spacing
+
+%%=======================================================%%
+%% to print line numbers in the margin use lineno option %%
+%%=======================================================%%
+
+%%\documentclass[lineno,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%======================================================%%
+%% to compile with pdflatex/xelatex use pdflatex option %%
+%%======================================================%%
+
+%%\documentclass[pdflatex,sn-apa]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+
+%%Note: the following reference styles support Namedate and Numbered referencing. By default the style follows the most common style. To switch between the options you can add or remove Numbered in the optional parenthesis. 
+%%The option is available for: sn-basic.bst, sn-vancouver.bst, sn-chicago.bst, sn-mathphys.bst. %  
+
+%%\documentclass[sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
+%%\documentclass[sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+%%\documentclass[pdflatex, sn-mathphys,Numbered]{sn-jnl}% Math and Physical Sciences Reference Style
+%%\documentclass[sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
+%%\documentclass[sn-vancouver,Numbered]{sn-jnl}% Vancouver Reference Style
+%%\documentclass[sn-apa]{sn-jnl}% APA Reference Style 
+\documentclass[sn-chicago]{sn-jnl}% Chicago-based Humanities Reference Style
+%%\documentclass[default]{sn-jnl}% Default
+%%\documentclass[default,iicol]{sn-jnl}% Default with double column layout
+
+%%%% Standard Packages
+%%<additional latex packages if required can be included here>
+
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+\usepackage{threeparttable}
+\usepackage{dcolumn} %for stargazer in R
+%%%%
+
+% Hypersetup for hyperlinks
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,            
+	linkcolor={red!50!black},
+	citecolor={blue!50!black},
+	urlcolor={blue!80!black}
+}
+\usepackage{float}
+
+%%%%%=============================================================================%%%%
+% color scheme
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\green}[1]{\textcolor{green}{#1}}
+\newcommand{\teal}[1]{\textcolor{teal}{#1}}
+
+%%%%%=============================================================================%%%%
+
+%\jyear{2021}%
+
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+\newtheorem{lemma}{Lemma}
+\newtheorem{assumption}{Assumption}
+
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+
+
+
+\begin{document}
+	
+	\title[Article Title]{title}
+	
+	%%=============================================================%%
+	%% Prefix	-> \pfx{Dr}
+	%% GivenName	-> \fnm{Joergen W.}
+	%% Particle	-> \spfx{van der} -> surname prefix
+	%% FamilyName	-> \sur{Ploeg}
+	%% Suffix	-> \sfx{IV}
+	%% NatureName	-> \tanm{Poet Laureate} -> Title after name
+	%% Degrees	-> \dgr{MSc, PhD}
+	%% \author*[1,2]{\pfx{Dr} \fnm{Joergen W.} \spfx{van der} \sur{Ploeg} \sfx{IV} \tanm{Poet Laureate} 
+		%%                 \dgr{MSc, PhD}}\email{iauthor@gmail.com}
+	%%=============================================================%%
+	
+	
+	
+	\author*[1]{\fnm{Quang-Thanh} \sur{Tran}} \email{tran.quang.thanh.p1@dc.tohoku.ac.jp}
+	
+	%\equalcont{These authors contributed equally to this work.}
+	
+	\affil*[1]{\orgdiv{Graduate School of Economics and Management}, \orgname{Tohoku University}, \orgaddress{\street{41 Kawauchi}, \city{Sendai}, \postcode{980-0862}, \state{Miyagi}, \country{Japan}}}
+	
+	
+	%%==================================%%
+	%% sample for unstructured abstract %%
+	%%==================================%%
+	
+	\abstract{hehe}
+	
+	
+	\keywords{s}
+	
+	\pacs[JEL Classification]{E17, E23, I24, J13, J24, O31}
+	
+	%%\pacs[MSC Classification]{35A01, 65L10, 65L12, 65L20, 65L70}
+	
+	\maketitle
+	
+	\section{Introduction}
+	
+	Recent developments in automation technologies have transformed the production process and how people work. Machines are now replacing many repetitive tasks in manufacturing factories  \citep{schwab2017fourth}. The society also has fewer people performing those tasks, necessitating the R\&D in industrial robots that can replace humans \citep{acemoglu_demographics_2022}. In many industrialized countries, the increased stock of robots has moved in sync with the decrease in fertility rate, as depicted in Fig. \ref{fig:world_fertility}. We believe this trend results from a reciprocal relationship between machines and fertility. In particular, in order to help their children win the race against the machines, parents tend to increase spending on education , which would be more affordable by having fewer babies. As a consequence, the economy experience less human labor, which necessitate the demand for more machines in production. The rise in education spending also increases the proportion of high-skilled labor, which can be used to create smarter robots with wider range of variety. 
+	
+
+	
+	\newpage
+	\bibliography{sn-bibliography.bib}% common bib file
+	%% if required, the content of .bbl file can be included here once bbl is generated
+	%%\input sn-article.bbl
+	
+	\newpage
+	\begin{appendices}
+		
+		\section{ Regression Results}
+		
+		\begin{table}[!htbp] \centering   \caption{Correlation Testing for Figure \ref{fig:jp_empirics}}   \label{table:regression} \begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} } \\[-1.8ex]\hline \hline \\[-1.8ex]  & \multicolumn{2}{c}{\textit{Dependent variable:}} \\  \\[-1.8ex] & \multicolumn{1}{c}{birth\_rate} & \multicolumn{1}{c}{skill\_premium} \\ \\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)}\\ \hline \\[-1.8ex]  $\log$(robots\_per\_worker) & -1.165^{***} &  \\   & (0.085) &  \\   & & \\  $\log$ income & -1.228^{**} &  \\   & (0.461) &  \\   & & \\  enrollment\_rate & -4.580^{***} &  \\   & (0.678) &  \\   & & \\  $std\_robots\_per\_worker^2$ &  & 0.075^{***} \\   &  & (0.006) \\   & & \\  $std\_robots\_per\_worker$ &  & -0.295^{***} \\   &  & (0.018) \\   & & \\  Constant & 38.653^{***} & 1.670^{***} \\   & (5.580) & (0.012) \\   & & \\ \hline \\[-1.8ex] Observations & \multicolumn{1}{c}{36} & \multicolumn{1}{c}{36} \\ R$^{2}$ & \multicolumn{1}{c}{0.993} & \multicolumn{1}{c}{0.917} \\ Adjusted R$^{2}$ & \multicolumn{1}{c}{0.993} & \multicolumn{1}{c}{0.912} \\ Residual Std. Error & \multicolumn{1}{c}{0.145 (df = 32)} & \multicolumn{1}{c}{0.027 (df = 33)} \\ F Statistic & \multicolumn{1}{c}{1,567.013$^{***}$ (df = 3; 32)} & \multicolumn{1}{c}{181.539$^{***}$ (df = 2; 33)} \\ \hline \hline \\[-1.8ex] \textit{Note:}  &  \multicolumn{2}{r}{  $^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
+				& \multicolumn{2}{l}{ $std\_robots\_per\_worker$ is the positive standardization of robot density.} \\ \end{tabular} \end{table} 
+		
+	\end{appendices}
+	
+	%%===========================================================================================%%
+	%% If you are submitting to one of the Nature Portfolio journals, using the eJP submission   %%
+	%% system, please include the references within the manuscript file itself. You may do this  %%
+	%% by copying the reference list from your .bbl file, paste it into the main manuscript .tex %%
+	%% file, and delete the associated \verb+\bibliography+ commands.                            %%
+	%%===========================================================================================%%
+	
+	
+	
+	
+\end{document}
