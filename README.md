@@ -1,9 +1,7 @@
 In case links may die in the future, download all available pdf files as soon as possible.
 ## Template for thesis
 
-Download the the .zip file from the [release page](https://github.com/thanhqtran/resources/releases/tag/tex-template).
-
-or from [Overleaf-gallery](https://www.overleaf.com/latex/templates/tohoku-university-thesis-template-m-dot-sc-slash-ph-dot-d/pcgmkntbnvzw)
+Donwload [this folder](https://github.com/thanhqtran/toolkit/tree/main/latex/thesis_plain)
 
 ### Ruby script to convert wordpress xml to markdown.
 [https://gist.github.com/thanhqtran/6529293936987c97441d19e7b2c4d588](https://gist.github.com/thanhqtran/6529293936987c97441d19e7b2c4d588)
