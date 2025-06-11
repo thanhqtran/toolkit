@@ -1,0 +1,253 @@
+%==========================================
+% The simplest template for dissertation
+% Only the class book is needed.
+% No need for .cls or .bst file
+% Simple run and compile
+%==========================================
+% Extra
+% To remove uncited references from the bib file
+% run the following python script: https://github.com/thanhqtran/toolkit/blob/main/clean_unused_bib.py
+
+
+\documentclass[oneside, 12pt, a4paper]{book}
+
+%===========================================
+%---------------- PREAMBLE -----------------
+%===========================================
+
+\usepackage[a4paper, margin=1in, right=1.2in,left=1.2in,top=1.1in,bottom=1.1in]{geometry}
+
+\usepackage{mathpazo} % Use the Palatino font by default
+% ==== Remove chapter name from the header in each page
+\usepackage{fancyhdr} % For custom headers and footers
+\pagestyle{fancy}
+\usepackage[english]{babel}
+% Clear all headers and footers
+\fancyhf{}
+
+% Keep page number in the header (optional)
+\fancyhead[LE,RO]{\thepage} % Page number on the left for even pages (LE) and right for odd pages (RO)
+
+% To remove chapter name from the header
+\fancyhead[LO,RE]{} % Clears left header on odd pages and right header on even pages
+
+
+%====== REQUIRE Package for title pages
+% source: https://tex.stackexchange.com/questions/59460/custom-title-page-in-report-or-book-class
+
+\usepackage{xcolor}
+\usepackage{graphicx}
+
+% ======= Other utility packages
+\usepackage{layouts}
+\usepackage{etoolbox}
+\usepackage{booktabs}
+\usepackage{authblk}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools,mathrsfs}
+\usepackage{cases}
+\usepackage{empheq}
+\usepackage{enotez}
+\usepackage{pdflscape}
+\usepackage{natbib}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{xr}
+\usepackage{todonotes}
+\usepackage{setspace}
+\usepackage{threeparttable}
+\usepackage{tikz,tikzscale}
+\usetikzlibrary{arrows,calc,automata,patterns,positioning,shapes.geometric,decorations.pathreplacing,decorations.markings, trees, fit}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{width=10cm,compat=1.9}
+\usepackage{calrsfs} 
+\usepackage{tabularx}
+\usepackage{xurl}
+\usepackage{enotez}
+\setenotez{backref=true}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,            
+    linkcolor={black!50!black},
+    citecolor={black!50!black},
+    urlcolor={black!80!black},
+    hyperfootnotes=true
+}
+% Convenient text coloring
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\green}[1]{\textcolor{green}{#1}}
+\newcommand{\teal}[1]{\textcolor{teal}{#1}}
+
+\theoremstyle{definition}\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\theoremstyle{theorem}\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}\newtheorem{ass}{Assumption}
+\theoremstyle{definition}\newtheorem{remark}{Remark}
+\theoremstyle{theorem}\newtheorem{prop}{Proposition}
+\theoremstyle{theorem}\newtheorem{lemma}{Lemma}
+\theoremstyle{definition}\newtheorem{fact}{Fact}
+
+% for book format
+
+\numberwithin{corollary}{chapter}
+\numberwithin{prop}{chapter}
+\numberwithin{ass}{chapter}
+\numberwithin{definition}{chapter}
+\numberwithin{lemma}{chapter}
+\numberwithin{equation}{chapter}
+
+% ========= Sub-abstract for each chapter
+\newenvironment{chapabstract}
+{
+    \begin{center}%
+        \vspace*{1.5cm}
+        \Large \bfseries Abstract \vspace{-.5em}\vspace{0pt}
+    \end{center}
+    \list{}{%
+        \setlength{\leftmargin}{5mm}% <---------- CHANGE HERE
+        \setlength{\rightmargin}{\leftmargin}%
+    }%
+    \item\relax
+}
+{\par}
+\makeatother
+
+\newenvironment{keywords}{%
+    \vspace{10pt}
+    \noindent\textit{Keywords:}\quad
+}{%
+    \par\vspace{10pt}
+}
+
+\newenvironment{jelclass}{%
+    \vspace{10pt}
+    \noindent\textit{JEL Classification:}\quad
+}{%
+    \par\vspace{10pt}
+}
+
+%============== Packages for appendices
+\usepackage[titletoc]{appendix}
+\usepackage{chngcntr}
+
+% Setup for subappendices environment
+\AtBeginEnvironment{subappendices}{%
+    % Add the 'Appendices' entry in the TOC as a chapter
+    %\addtocontents{toc}{\protect\addvspace{10pt}\bfseries Appendices\par} 
+    \counterwithin{figure}{section}  % Reset figure counter within section
+    \counterwithin{table}{section}   % Reset table counter within section
+}
+
+\AtEndEnvironment{subappendices}{%
+    % Reset the counters after subappendices
+    \counterwithout{figure}{section}
+    \counterwithin{figure}{chapter}  % Restore figure counter within chapter
+    \counterwithout{table}{section}
+    \counterwithin{table}{chapter}   % Restore table counter within chapter
+}
+
+
+
+% Declaration
+\author{author}
+% set footnote counter
+\counterwithin*{footnote}{chapter}
+\counterwithin{endnote}{chapter}
+
+%===========================================
+%------------- MAIN CONTENT ----------------
+%===========================================
+
+\begin{document}
+
+
+% ----------------------------------------------------------------
+% CUSTOMIZE THE TITLE PAGE
+% ----------------------------------------------------------------
+
+\begin{titlepage}
+    \begin{center}
+        % --------------------------------------------------------
+        % include university logo here
+        \includegraphics[width=0.19\textwidth]{logo.png}\\[5pt]
+        {Graduate School of Economics and Management}\\[5pt]
+        {TOHOKU UNIVERSITY}\\[5pt]
+        
+        \vspace{1.5cm}
+        {\huge\bfseries Three Essays on Economics}
+        % ----------------------------------------------------------------
+        \vspace{1.5cm}
+        {\Large\bfseries Author}\\[5pt]
+        
+        % ----------------------------------------------------------------
+        \vspace{2cm}
+        {A thesis  submitted to} \\[5pt]
+        \emph{{Faculty of Economics, Tohoku University,}}\\[5pt]
+        {in partial fulfillment of the requirements for the degree of } \\[5pt]
+        {Doctor of Philosophy in Economics} \\[5pt]
+        \vfill
+        
+        % List of Professor and Reviewers
+        \begin{tabular}{l l} 
+            \textbf{Supervisor:}  & Prof. A \\ 
+            \textbf{Referees:}    & Prof. B \\
+                                  & Prof. Jiro Akita \\
+                                  & Prof. So Kubota
+        \end{tabular} 
+        
+        \vfill
+        Submission Date: December 24, 2024
+    \end{center}
+\end{titlepage}
+
+\newpage
+
+% ----------------------------------------------------------------
+% Dissertation content
+% ----------------------------------------------------------------
+% we are going to number the pre-content pages with roman numbers
+\pagenumbering{roman}
+
+\include{acknowledgement}    %import acknowledgement.tex from root folder
+
+% Let's change \thepage so it prints one less than
+% the real page number; \pagenumbering{arabic}
+% will redefine it to the right meaning afterwards.
+\renewcommand\thepage{\romannumeral\numexpr\value{page}-1\relax}
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+
+% For main content, use arabic numbers
+\cleardoublepage
+\pagenumbering{arabic}
+
+
+% Main chapters
+
+\include{Introduction}
+
+\include{Chapter1}
+
+\include{Chapter2}
+
+\include{Chapter3}
+
+\include{conclusion}
+
+
+
+% Reference
+
+\clearpage
+\phantomsection
+
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{apalike}
+\bibliography{references}
+
+    
+\end{document}
